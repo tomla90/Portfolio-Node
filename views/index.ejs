@@ -8,10 +8,10 @@
     <body class="position-relative" data-bs-spy="scroll">
           <%- include('./partials/navbar.ejs') %>
           <div data-spy="scroll" data-target="#navbar" data-offset="0">
-            <%- include('./partials/home.ejs', {data: data}) %>
+            <%- include('./partials/home.ejs') %>
             <%- include('./partials/about.ejs') %>
             <%- include('./partials/services.ejs') %>
-            <%- include('./partials/recommendations.ejs', {datarecommend: datarecommend}) %>
+            <%- include('./partials/recommendations.ejs', {data: data}) %>
             <%- include('./partials/portfolio.ejs') %>
             <%- include('./partials/contact.ejs') %>
           </div>
