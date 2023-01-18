@@ -14,6 +14,20 @@ router.post('/', jsonParser, function(req, res, next) {
   res.end();
 });
 
+router.delete('/', function (req, res, next) {
+  let rawdata = fs.readFileSync(path.resolve(__dirname, '../data/introductionArray.json'));
+  let array = JSON.parse(rawdata);
+  let del = req.body.deletedText;
+  let delObj = array.find(() => req.body == del);
+  let delIndex = array.indexOf(delObj);
+  array.splice(delIndex, 1);
+  fs.writeFileSync(
+      path.resolve(__dirname, '../data/introductionArray.json'),
+      JSON.stringify(array)
+  );
+  res.end();
+});
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   let data = fs.readFileSync(path.resolve(__dirname, "../data/introductionArray.json"));
