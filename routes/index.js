@@ -7,7 +7,8 @@ const path = require("path")
  router.get('/', function(req, res, next) {
   let data = fs.readFileSync(path.resolve(__dirname, "../data/introductionArray.json"));
   let datarecommend = fs.readFileSync(path.resolve(__dirname, "../data/recommendations.json"));
-  res.render('index', { title: 'Express' , array: JSON.parse(data), data: JSON.parse(datarecommend)});
+  let datacake = fs.readFileSync(path.resolve(__dirname, "../data/portfolio.json"));
+  res.render('index', { title: 'Express' , array: JSON.parse(data), data: JSON.parse(datarecommend), cakes: JSON.parse(datacake)});
 });
 
 
