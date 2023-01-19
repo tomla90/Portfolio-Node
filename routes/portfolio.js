@@ -52,25 +52,7 @@ router.post('/', jsonParser, function(req, res, next) {
   }
 });
 
-//check if no additional attributes
-// const expectedAttributes = ["url", "name", "alt", "category", "header", "description"]
-// Object.keys(req.body).forEach(param => {
-//   if(!(expectedAttributes.includes(param))) {
-//     res.status(400).end("Wrong attributes");
-//   }
-// });
 
-// //check if url and name provided
-// if(req.body.url == null || req.body.name == null) {
-//   res.status(400).end("URL/name not provided");
-// }
-
-// //check if category is correct (if provided)
-// if(req.body.category != null) {
-//   if (!(["wedding", "christmas", "birthday", "anniversary"].includes(req.body.category))) {
-//     res.status(400).end("Wrong category provided");
-//   }
-// }
 router.delete('/', jsonParser, function(req, res, next) {
   // Check if the request body has the expected attributes
   const expectedAttributes = ["name"];
