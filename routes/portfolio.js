@@ -5,6 +5,8 @@ const path = require("path")
 var request = require('request');
 var bodyParser = require('body-parser')
 var jsonParser = bodyParser.json()
+var ensureLogIn = require('connect-ensure-login').ensureLoggedIn;
+var ensureLoggedIn = ensureLogIn();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -53,7 +55,7 @@ router.post('/', jsonParser, function(req, res, next) {
 });
 
 
-router.delete('/', jsonParser, function(req, res, next) {
+router.delete('/', jsonParser, ensureLoggedIn, function(req, res, next) {
   // Check if the request body has the expected attributes
   const expectedAttributes = ["name"];
   Object.keys(req.body).forEach(param => {
